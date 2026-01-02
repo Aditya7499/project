@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort</title>
+</head>
+<body>
+    <h1>Bubble Sort</h1>
+    <input type="text" id="inputArray" placeholder="Enter numbers separated by commas">
+    <button onclick="bubbleSort()">Sort</button>
+    <p id="result"></p>
+
+    <script>
+        function bubbleSort() {
+            var input = document.getElementById("inputArray").value;
+            var numbers = input.split(",").map(Number);
+            var n = numbers.length;
+            for (var i = 0; i < n - 1; i++) {
+                for (var j = 0; j < n - i - 1; j++) {
+                    if (numbers[j] > numbers[j + 1]) {
+                        var temp = numbers[j];
+                        numbers[j] = numbers[j + 1];
+                        numbers[j + 1] = temp;
+                    }
+                }
+            }
+            document.getElementById("result").innerHTML = "Sorted array: " + numbers.join(", ");
+        }
+    </script>
+</body>
+</html>
